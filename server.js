@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/chemistry", (req, res) => {
-  const q = req.body.question.toLowerCase();
+  const q = (req.body.question || "").toLowerCase();
   let answer = "";
 
   if (q.includes("chloride")) {
@@ -31,5 +31,4 @@ app.post("/chemistry", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => console.log("Running on port " + PORT));
+app.listen(PORT, () => console.log("Running on " + PORT));
